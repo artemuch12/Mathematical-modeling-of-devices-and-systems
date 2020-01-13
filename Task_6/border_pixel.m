@@ -1,16 +1,17 @@
-% Функция пороговой обработки изображения.
-% Пиксели входящие изображение сравнивается (в зависимости от настройки) с
-% порогом в случае если порог не пройден (пройден - зависит от найстройки),
-% то данный пиксель минизируется (максимизируется).
-% Входные характеристики:
-%     image - изображение приведенное к типу double;
-%     border - порог;
-%     setting - настройки отвечающие за то, как поведет функция с порогом.
-%       Если выставлены настройки "down", то пиксель, чье значение ниже
-%       порога зануляется, если настройка "up", то пиксель чьё значение
-%       больше порога ставится в положение 1.
-% Выходные данные
-%     out_image - изображение прошедшешее через пороговый алгоритм;
+% Threshold image processing function.
+% Pixels incoming image is compared (depending on the setting) with
+% threshold if the threshold is not passed (passed - depends on the 
+% adjustment), then this pixel is mined (maximized).
+% Input Specifications:
+%   image - image cast to double type;
+%   border - threshold;
+%   setting - settings responsible for how the function will lead with a 
+%   threshold. If the settings are set to "down", then the pixel whose 
+%   value is lower of the threshold is nullified, if the setting is up, 
+%   then the pixel whose value greater than the threshold is put in 
+%   position 1.
+% Output
+%   out_image - image passed through the threshold algorithm;
 function [out_image] = border_pixel (image, border, setting)
 size_image = size(image);
 out_image = image;
@@ -35,5 +36,5 @@ elseif strcmp(setting, 'down') == true
         end
     end  
 else
-    error('Не верные настройки! Разрешены либо up, либо dawn');
+    error('Incorrect settings! Allowed either up or dawn');
 end

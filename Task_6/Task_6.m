@@ -1,17 +1,15 @@
-% Задание 6. Основы цифровой обработки изображений.
+% Task 6. Basics of digital image processing.
 close all
 clc
 clear
 key_figure = 'no';
-% Считывание изображений
+% Image reading
 image_1 = imread('1.png');
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_1)
-    title('Исходное изображение')
+    title('Original image')
 end
-% Дополнительное изображение для пункта 11
-image_2 = imread('2.png');
 double_image_1 = im2double(image_1);
 double_image_2 = im2double(image_2);
 red = double_image_1(:, :, 1);
@@ -22,101 +20,101 @@ if(strcmp(key_figure, 'yes') == true)
     figure;
     subplot(2,2,1)
     imshow(gray)
-    title('Черно-белое изображение')
+    title('Black and white image')
     subplot(2,2,2)
     imshow(red)
-    title('"Красная" компонента')
+    title('"Red" channel')
     subplot(2,2,3)
     imshow(gren)
-    title('"Зеленая" компонента')
+    title('"Gren" channel')
     subplot(2,2,4)
     imshow(blue)
-    title('"Синия" компонента')
+    title('"Blue" channel')
 end
 
-% Пороговая обработка изображений
+% Threshold image processing
 border_image_down = border_pixel (double_image_1, 0.2, 'down');
 border_image_up = border_pixel (double_image_1, 0.8, 'up');
 if(strcmp(key_figure, 'yes') == true)
 figure;
     imshow(border_image_down)
-    title('Изображение после пороговой обработки с настройкой down')
+    title('Image after threshold processing with the setting "down"')
     figure;
     imshow(border_image_up)
-    title('Изображение после пороговой обработки с настройкой up')
+    title('Image after threshold processing with the setting "up"')
 end
-% Кадрирование
+% Framing
 frame_height = 150;
 frame_width = 200;
 image_frame = image_1(1:frame_height,1:frame_width,:);
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_frame)
-    title('Изображение после кадрирования')
+    title('Image after cropping')
 end
 
-% Изменение размеров изображений
+% Resize the images
 image_size1 = change_size (double_image_1, 0.5);
 image_size2 = change_size (double_image_1, 0.667);
-image_size3 = change_size (double_image_1, 2);
+% image_size3 = change_size (double_image_1, 2);
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_size1)
-    title('Изображение уменьшеное в 2 раза')
+    title('Image reduced 2 times')
     figure;
     imshow(image_size2)
-    title('Изображение уменьшеное в 1.5 раза')
+    title('Image reduced 1.5 times')
 %     figure;
 %     imshow(image_size3)
-%     title('Изображение увеличенное в 2 раза')
+%     title('Image magnified 2 times')
 end
 
-% Медианная фильтрация
+% Median filtering
 % image_median = median_filter(double_image_1, 3, 3);
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_median)
-    title('Изображение после медианной фильтрации')
+    title('Image after median filtering')
 end
 
-% Постеризация изображения
+% Image posterization
 image_posterization = postarization(image_1, 2);
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_posterization)
-    title('Постеризированное изображение')
+    title('Posteurized image')
 end
 
-% Гистограмма
+% Histogram
 if(strcmp(key_figure, 'yes') == true)
     figure;
     subplot(2, 2, 1)
     imhist(red)
-    title('"Красная" компонента')
+    title('"Red" channel')
     subplot(2, 2, 2)
-    imhist(blue)
-    title('"Синия" компонента')
-    subplot(2, 2, 3)
     imhist(gren)
-    title('"Зеленая" компонента')
+    title('"Gren" channel')
+    subplot(2, 2, 3)
+    imhist(blue)
+    title('"Blue" channel')
     subplot(2, 2, 4)
     imhist(image_1)
-    title('Яркость изображения')
+    title('Image brightness')
 end
 
-% Гамма-коррекция
+% Gamma correction
 image_gamma = gamma_correction(double_image_1, 1, 2);
 if(strcmp(key_figure, 'yes') == true)
     figure; 
     imshow(image_gamma)
-    title('Исходное изображение после гамма-коррекции')
+    title('The original image after gamma correction')
 end
 
-% Градиент
+% Gradient
  gradients = image_gradient(gray);
  if(strcmp(key_figure, 'yes') == true)
     figure; 
     imshow(gradients)
-    title('Градиент изображения')
+    title('Image gradient')
  end
  

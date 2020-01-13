@@ -1,14 +1,13 @@
-% Функция постеризации изображения
-% Функция производит постеризацию входного изображения согласно задаваемому 
-% уровню.
-% Входные данные:
-%   image - изображение в формате uint8
-%   bit - уровни
-% Выходные данные:
-%   out_image - изображение в формате double
+% Image Posterization Function
+% The function posterizes the input image according to the set level.
+% Input data:
+%   image - uint8 image
+%   bit - levels
+% Output:
+%   out_image - double image
 function [out_image] = postarization(image, bit)
 if bit <= 0
-    error('Ошибка! Количество уровней должно быть больше 0');
+    error('Error! The number of levels must be greater than 0');
 end
 image = uint32(image);
 bite_rate = 2^bit;

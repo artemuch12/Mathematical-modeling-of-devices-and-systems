@@ -1,14 +1,14 @@
-% ‘ункци€ изменени€ размеров изображени€.
-% »сходное изображение проходит через медианный фильтр, который замен€ет
-% значение в точке на двумерное математическое ожидание от пикселей
-% вход€щих в окно. –азмеры окно измен€емы, но должны быть не отрицательными
-% числами и нечетными. »сходное изображение должно быть приведено в 
-% ¬ходные характеристики:
-%     image - изображение приведенное к типу double, цветное;
-%     size_x - размер скольз€щего окна по x, нечетные числа;
-%     size_y - размер скольз€щего окна по y, нечетные числа;
-% ¬ыходные данные
-%     out_image - отфильтрованное изображение;
+% Image resizing function.
+% The original image passes through a median filter that replaces
+% value at a point on the two-dimensional expectation from pixels
+% included in the window. Window dimensions are resizable, but should not 
+% be negative by numbers and odd. The original image should be given in
+% Input Specifications:
+%   image - image converted to type double, color;
+%   size_x - size of the sliding window by x, odd numbers;
+%   size_y - size of the sliding window by y, odd numbers;
+% Output
+%   out_image - filtered image;
 function [out_image] = median_filter (image, scale_y, scale_x)
 out_image = image;
 [height, width, ~] = size(image);

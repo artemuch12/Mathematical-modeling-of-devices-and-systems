@@ -1,13 +1,11 @@
-% Функция квантования сигнала.
-% Входящий синал функция квантует по уровню с равномерным шагом.
-% Входные характеристики:
-%     input_data - отчеты сигнала;
-%     bit - разрядность квантователя;
-% Выходные данные
-%     out_data -  квантованные отчеты;
+% Function of quantization of a signal.
+% The incoming sinal function quantizes in level with a uniform step.
+% Input Specifications:
+%   input_data - signal reports;
+%   bit - quantizer bit depth;
+% Output
+%   out_data - quantized reports;
 function [out_data] = signal_quantization (input_data, bit)
-% Выделение памяти на хранение выходных данных (необходимо, чтобы  интопре-
-% татор не ругался лишний раз)
 if(bit <= 0)
     error("Разрядность не может быть меньше 0");
 end

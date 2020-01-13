@@ -1,11 +1,10 @@
-% Функция изменения размеров изображения.
-% Размеры входного изображения изменяются согласно масштабному
-% коэффициенту. 
-% Входные характеристики:
-%     image - изображение приведенное к типу double;
-%     scale - масштабирующий коэффицент;
-% Выходные данные
-%     out_image - масштабированное изображение;
+% Image resizing function.
+% The size of the input image changes according to the scale ratio.
+% Input Specifications:
+%   image - image cast to double type;
+%   scale - scaling factor;
+% Output
+%   out_image - scaled image;
 function [out_image] = change_size (image, scale)
 [height, width, plane] = size(image);
 new_height = floor(height*scale);
@@ -47,10 +46,11 @@ for z = 1:plane
     end
 end
 
-% Для случая увеличения изображения (и не только для случая увеличения в 
-% приниципе)неоходимо использовать интерполяцию, для заполнения новых пик-
-% селей. Поскольку по заднию требуется только уменьшить, то эта часть кода 
-% дополнительная и действует для случая с переменной scope больше 1
+% For the case of enlarging the image (and not only for the case of 
+% increasing in municipality) it is necessary to use interpolation to fill 
+% in new picmudflows. Since the back only needs to be reduced, this part of 
+% the code extra and is valid for the case with scope variable greater than 
+% one.
 [Xq,Yq] = meshgrid(1:new_width, 1:new_height);
 if (scale > 1)
     time_matrix_1 = interp2(out_image(:,:,1), Xq, Yq, 'linear');
