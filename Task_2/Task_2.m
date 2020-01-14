@@ -2,6 +2,7 @@
 close all
 clc
 clear
+addpath('.\function')
 % We form a polyharmonic signal
 signal_duration = 0:0.01:1;
 [~, size_simple] = size(signal_duration);
@@ -66,3 +67,5 @@ grid on;
 step_adc = 1:16;
 plot(step_adc, SNR)
 title('Dependence of SNR on ADC capacity')
+
+rmpath('.\function')

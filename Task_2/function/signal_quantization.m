@@ -7,7 +7,7 @@
 %   out_data - quantized reports;
 function [out_data] = signal_quantization (input_data, bit)
 if(bit <= 0)
-    error("Разрядность не может быть меньше 0");
+    error("Bit depth cannot be less than 0");
 end
 out_data = input_data;
 [~, size_in_data] = size(input_data);

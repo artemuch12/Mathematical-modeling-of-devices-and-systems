@@ -2,7 +2,11 @@
 close all
 clc
 clear
-key_figure = 'no';
+
+addpath('.\function')
+addpath('.\standart_image')
+
+key_figure = 'yes';
 % Image reading
 image_1 = imread('1.png');
 if(strcmp(key_figure, 'yes') == true)
@@ -11,7 +15,6 @@ if(strcmp(key_figure, 'yes') == true)
     title('Original image')
 end
 double_image_1 = im2double(image_1);
-double_image_2 = im2double(image_2);
 red = double_image_1(:, :, 1);
 gren = double_image_1(:, :, 2);
 blue = double_image_1(:, :, 3);
@@ -70,7 +73,7 @@ if(strcmp(key_figure, 'yes') == true)
 end
 
 % Median filtering
-% image_median = median_filter(double_image_1, 3, 3);
+image_median = median_filter(double_image_1, 3, 3);
 if(strcmp(key_figure, 'yes') == true)
     figure;
     imshow(image_median)
@@ -118,3 +121,5 @@ end
     title('Image gradient')
  end
  
+rmpath('.\function')
+rmpath('.\standart_image')
